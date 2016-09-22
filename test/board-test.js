@@ -1,5 +1,6 @@
 var assert = require ("chai").assert;
-var Board = require ("../lib/board.js");
+var Board = require ("../lib/board.js")[0];
+var Cell = require ("../lib/board.js")[1];
 
 
 
@@ -261,5 +262,20 @@ describe("testing ability to move in all directions", function() {
     assert.equal(board.cells[13].value, 4);
     assert.equal(board.cells[14].value, 4);
     assert.equal(board.cells[15].value, 8);
+  });
+});
+
+describe("testing score functionality", function() {
+  var cell = new Cell();
+  it("should be able to calculate the score", function() {
+    assert.isFunction(cell.calculateScore);
+  });
+
+  it("should be able to set the high score", function() {
+    assert.isFunction(cell.setHighScore);
+  });
+
+  it("should update values of each cell with each move", function() {
+    assert.isFunction(cell.update);
   });
 });
